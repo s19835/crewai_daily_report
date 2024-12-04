@@ -62,5 +62,12 @@ def main():
         agent=writer
     )
 
+    # create a crew with those agents
+    crew = Crew(
+        agents=[researcher, writer],
+        tasks=[task1, task2],
+        verbose=2 # controls the level of logging output - provide essential information about the process
+    )
+
 if __name__ == "__main__":
     main()
