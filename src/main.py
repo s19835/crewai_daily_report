@@ -15,6 +15,23 @@ def main():
     # setup a tool
     search_tool = DuckDuckGoSearchRun()
     
+    # define agents with roles and goals
+    
+    # define researcher for doing research for the concepts
+    researcher = Agent(
+        role='Senior Research Analysist',
+        goal='Uncover cutting-edge developments in AI and data science',
+        backstory="""You work at a leading tech think tank.
+                Your expertise lies in identifying emerging trends.
+                You have a knack for dissecting complex data and presenting
+                actionable insights.""",
+        verbose=True,
+        allow_delegation=False,
+        llm=llm,
+        tools=[
+            search_tool
+        ]
+    )
 
 if __name__ == "__main__":
     main()
