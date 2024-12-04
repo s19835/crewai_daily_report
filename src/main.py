@@ -22,15 +22,25 @@ def main():
         role='Senior Research Analysist',
         goal='Uncover cutting-edge developments in AI and data science',
         backstory="""You work at a leading tech think tank.
-                Your expertise lies in identifying emerging trends.
-                You have a knack for dissecting complex data and presenting
-                actionable insights.""",
+            Your expertise lies in identifying emerging trends.
+            You have a knack for dissecting complex data and presenting actionable insights.""",
         verbose=True,
         allow_delegation=False,
         llm=llm,
         tools=[
             search_tool
         ]
+    )
+
+    # define writer agent for writing the research results
+    writer = Agent(
+        role='Tech Content Strategist',
+        goal='Craft compelling content on tech advancements',
+        backstory="""You are a renowned Content Strategist, known for your insightful and engaging articles.
+        You transform complex concepts into compelling narratives.""",
+        verbose=True,
+        allow_delegation=False,
+        tools=[]
     )
 
 if __name__ == "__main__":
