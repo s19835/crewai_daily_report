@@ -1,73 +1,59 @@
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
-from crewai import Agent, Task, Process, Crew
-from langchain_community.tools import DuckDuckGoSearchRun
+from crewai import Agent, Task, Crew
+from langchain.agents import Tool
 
 def main():
-    # get the gemini api key from env
+    # Load Gemini API key from environment variables
     api_key = os.getenv('GEMINI_API_KEY')
-    if api_key is None:
-        raise ValueError("Api key is not set in the env variable!")
+    if not api_key:
+        raise ValueError("API key is not set in the environment variable!")
 
-    # create llm using gemini pro
-    llm = ChatGoogleGenerativeAI(model="gemini-pro", verbose=True, temperature=0.6, api_key=api_key)
-    
-    # setup a tool
-    search_tool = DuckDuckGoSearchRun()
-    
-    # define agents with roles and goals
-    
-    # define researcher for doing research for the concepts
+    # Set up LLM using Gemini Pro
+    llm = ChatGoogleGenerativeAI(model="gemini-pro", api_key=api_key)
+
+    # Initialize DuckDuckGo search tool
+
+    # Researcher agent to perform AI research
     researcher = Agent(
-        role='Senior Research Analysist',
-        goal='Uncover cutting-edge developments in AI and data science',
-        backstory="""You work at a leading tech think tank.
-            Your expertise lies in identifying emerging trends.
-            You have a knack for dissecting complex data and presenting actionable insights.""",
-        verbose=True,
-        allow_delegation=False,
+        role='Researcher',
+        goal='Discover the latest advancements in AI',
+        backstory="A tech-savvy researcher skilled in gathering insights on cutting-edge topics.",
         llm=llm,
-        tools=[
-            search_tool
-        ]
-    )
-
-    # define writer agent for writing the research results
-    writer = Agent(
-        role='Tech Content Strategist',
-        goal='Craft compelling content on tech advancements',
-        backstory="""You are a renowned Content Strategist, known for your insightful and engaging articles.
-        You transform complex concepts into compelling narratives.""",
-        verbose=True,
-        allow_delegation=False,
         tools=[]
     )
 
-    # create tasks for the agents
-
-    # task1: conduct comprehensive analysis on the AI topic
-    task1 = Task(
-        description="""Conduct a comprehensive analysis of the latest advancements in AI in 2024.
-        Identify key trends, breakthrough technologies, and potential industry impacts.
-        Your final answer MUST be a full analysis report""",
-        agent=researcher
+    # Writer agent to draft blog posts
+    writer = Agent(
+        role='Writer',
+        goal='Write a blog post summarizing research findings',
+        backstory="An experienced writer with a knack for turning complex topics into engaging blogs.",
+        llm=llm
     )
 
-    # task2: using provided insight develp a well structured blog post
-    task2 = Task(
-        description="""Using the insights provided, develop an engaging blog post that highlights the most significant AI advancements.
-        Your post should be informative yet accessible, catering to a tech-savvy audience.
-        Make it sound cool, avoid complex words so it doesn't sound like AI.
-        Your final answer MUST be the full blog post of at least 4 paragraphs and MUST contain MORE THAN 100 WORDS.""",
+    # Define tasks for agents
+    research_task = Task(
+        description="Research the latest trends and hot news in AI for 2024. Provide a detailed summary.",
+        agent=researcher
+    )
+    write_task = Task(
+        description="Create a blog post based on the research insights. Write at least 150 words.",
         agent=writer
     )
 
-    # create a crew with those agents
+    # Create a crew to manage agents and tasks
     crew = Crew(
         agents=[researcher, writer],
-        tasks=[task1, task2],
-        verbose=2 # controls the level of logging output - provide essential information about the process
+        tasks=[research_task, write_task],
+        verbose=True
     )
+
+    # Execute the tasks
+    results = crew.kickoff()
+
+    # Display the output
+    print("Final Results:")
+    print(results)
 
 if __name__ == "__main__":
     main()
