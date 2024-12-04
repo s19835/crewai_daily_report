@@ -1,6 +1,7 @@
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from crewai import Agent, Task, Process, Crew
+from langchain_community.tools import DuckDuckGoSearchRun
 
 def main():
     # get the gemini api key from env
@@ -10,6 +11,9 @@ def main():
 
     # create llm using gemini pro
     llm = ChatGoogleGenerativeAI(model="gemini-pro", verbose=True, temperature=0.6, api_key=api_key)
+    
+    # setup a tool
+    search_tool = DuckDuckGoSearchRun()
     
 
 if __name__ == "__main__":
