@@ -16,7 +16,7 @@ This process is recurring, ensuring continuous production of relevant and insigh
 
 The project is organized into the following structure:
 
-```plaintext
+```bash
 crewai_daily_report/
 ├── LICENSE
 ├── README.md
@@ -40,13 +40,49 @@ crewai_daily_report/
 ├── venv/
 ```
 
-- **agents/**: Contains the logic for each of the AI agents.
-- **data/**: Stores the research data, drafts, and final approved articles.
-- **logs/**: Keeps log files for tracking and debugging purposes.
-- **main.py**: Initializes and runs the process.
-- **requirements.txt**: Lists dependencies required to run the project.
-- **README.md**: Provides an overview of the project.
-- **config.py**: Contains configuration settings and parameters for the agents.
+### **File and Folder Descriptions:**
+
+#### **Root Directory**
+
+- **`LICENSE`**: Contains the licensing information for the project.
+- **`README.md`**: Provides an overview of the project, its purpose, setup instructions, and how to run it.
+- **`requirements.txt`**: Lists all the dependencies and packages required to run the project.
+
+#### **`scripts/`**
+
+- **`setup_env.py`**: Script to set up the project environment, including installing dependencies and configuring paths.
+- **`utils.py`**: Contains utility functions and common code that can be reused across the project.
+
+#### **`src/`**
+
+- **`__init__.py`**: Indicates that the directory is a Python package.
+- **`main.py`**: The main script to initialize and run the entire process. It orchestrates the flow from the Researcher agent to the Writer and Critic agents.
+
+##### **`src/agents/`**
+
+- **`researcher.py`**: Contains the logic for the Researcher agent, responsible for gathering information about the latest AI trends and organizing this information for the Writer agent.
+- **`writer.py`**: Contains the logic for the Writer agent, which takes the researched data and composes a draft blog post or article.
+- **`critic.py`**: Contains the logic for the Critic agent, which reviews the Writer agent's drafts, checks for quality and adherence to guidelines, and provides feedback or approval.
+
+##### **`src/data/`**
+
+- **`research/`**: Stores the raw data and information collected by the Researcher agent.
+- **`drafts/`**: Contains drafts written by the Writer agent awaiting review by the Critic agent.
+- **`final/`**: Holds the final approved articles ready for publication or further distribution.
+
+##### **`src/logs/`**
+
+- Stores log files to track the processes, errors, and the performance of each agent for monitoring and debugging purposes.
+
+#### **`.gitignore`**
+
+- Specifies intentionally untracked files to ignore in Git. Typically includes files like environment configurations, logs, and compiled code.
+
+#### **`venv/`**
+
+- Virtual environment directory to manage dependencies locally without affecting the global Python installation.
+
+---
 
 ## **How It Works**
 

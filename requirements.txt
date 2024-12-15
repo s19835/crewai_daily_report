@@ -1,5 +1,0 @@
-# Required dependencies
-crewai==0.83.0  # Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.         
-duckduckgo-search==6.3.7 # Search for words, documents, images, news, maps and text translation using the DuckDuckGo.com search engine.
-langchain-google-genai==2.0.6 # An integration package connecting Google's genai package and LangChain
-langchain-community==0.3.9 # Community contributed LangChain integrations.
