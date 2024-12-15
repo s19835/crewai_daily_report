@@ -1,7 +1,3 @@
-Sure! Here’s a sample content for the `README.md` file that describes your project "crewai_daily_report":
-
----
-
 ## **crewai_daily_report**
 
 Welcome to the `crewai_daily_report` project! This project leverages AI agents to automate the process of researching, writing, and critiquing daily reports on the latest AI trends.
@@ -50,5 +46,3 @@ crewai_daily_report/
 (Details to be provided by the user.)
 
 ---
-
-Feel free to let me know how your project works and the installation steps, and I can help you complete those sections too!
