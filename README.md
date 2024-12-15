@@ -1,8 +1,9 @@
-## **crewai_daily_report**
+# **Crewai Daily Report**
 
 Welcome to the `crewai_daily_report` project! This project leverages AI agents to automate the process of researching, writing, and critiquing daily reports on the latest AI trends.
 
-### **Project Overview**
+## **Project Overview**
+
 The `crewai_daily_report` project consists of three AI agents: Researcher, Writer, and Critic, working sequentially to deliver high-quality articles on AI trends. Here's a brief overview of the process:
 
 1. **Researcher Agent**: Gathers up-to-date information on the latest AI topics and trends.
@@ -11,24 +12,32 @@ The `crewai_daily_report` project consists of three AI agents: Researcher, Write
 
 This process is recurring, ensuring continuous production of relevant and insightful content.
 
-### **File Structure**
+## **File Structure**
+
 The project is organized into the following structure:
 
 ```plaintext
 crewai_daily_report/
-├── agents/
-│   ├── researcher.py
-│   ├── writer.py
-│   ├── critic.py
-├── data/
-│   ├── research/
-│   ├── drafts/
-│   ├── final/
-├── logs/
-├── main.py
-├── requirements.txt
+├── LICENSE
 ├── README.md
-├── config.py
+├── requirements.txt
+├── scripts/
+│   ├── setup_env.py
+│   ├── utils.py
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── agents/
+│       ├── researcher.py
+│       ├── writer.py
+│       ├── critic.py
+│   ├── data/
+│       ├── research/
+│       ├── drafts/
+│       ├── final/
+│   ├── logs/
+├── .gitignore
+├── venv/
 ```
 
 - **agents/**: Contains the logic for each of the AI agents.
@@ -39,10 +48,12 @@ crewai_daily_report/
 - **README.md**: Provides an overview of the project.
 - **config.py**: Contains configuration settings and parameters for the agents.
 
-### **How It Works**
+## **How It Works**
+
 (Details to be provided by the user.)
 
-### **Installation**
+## **Installation**
+
 (Details to be provided by the user.)
 
 ---
