@@ -2,6 +2,17 @@
 
 Welcome to the `crewai_daily_report` project! This project leverages AI agents to automate the process of researching, writing, and critiquing daily reports on the latest AI trends.
 
+## crewai
+
+### How It All Works Together
+
+- AI **Agents** work on their specialized tasks.
+- **Tasks** get completed to achieve the goal.
+- The **Crew** organizes the overall operation.
+- The **Process** ensures smooth collaboration.
+
+To learn more about crewai, head to the [documentation site](https://docs.crewai.com/introduction)
+
 ## **Project Overview**
 
 The `crewai_daily_report` project consists of three AI agents: Researcher, Writer, and Critic, working sequentially to deliver high-quality articles on AI trends. Here's a brief overview of the process:
