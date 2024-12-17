@@ -1,6 +1,6 @@
 import os
 from crewai import Agent, Task
-from langchain.agents import Tool, load_tools
+from langchain.agents import Tool
 from langchain.utilities import GoogleSerperAPIWrapper
 
 serper_api = os.environ.get("serper_api")
