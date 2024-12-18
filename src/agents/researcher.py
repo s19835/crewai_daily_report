@@ -1,9 +1,9 @@
 import os
 from crewai import Agent, Task
 from langchain.agents import Tool
-from langchain.utilities import GoogleSerperAPIWrapper
+from langchain_community.utilities import GoogleSerperAPIWrapper
 
-serper_api = os.environ.get("serper_api")
+serper_api = os.environ.get("SERPER_API_KEY")
 if serper_api is None:
     raise ValueError("serper_api key ENVIRONMENT VARIALBE is not set")
 
@@ -51,5 +51,6 @@ research = Task(
             - Detect emerging patterns, trends, and connections between developments.
 
     Your report should be formatted in a clear and organized manner, making it easy for the Writer agent to use the information for drafting blog posts. Aim for depth, accuracy, and relevance in your research, ensuring that the insights provided are valuable for stakeholders looking to stay ahead in the AI landscape.""",
-    agent=researcher
+    agent=researcher,
+    expected_output="A detailed and actionable report on the latest and most innovative developments in AI and machine learning."
 )
