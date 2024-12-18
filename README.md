@@ -39,16 +39,18 @@ crewai_daily_report/
 │   ├── __init__.py
 │   ├── main.py
 │   ├── agents/
-│       ├── researcher.py
-│       ├── writer.py
-│       ├── critic.py
+│   │   ├── researcher.py
+│   │   ├── writer.py
+│   │   ├── critic.py
 │   ├── data/
-│       ├── research/
-│       ├── drafts/
-│       ├── final/
+│   │   ├── research/
+│   │   ├── drafts/
+│   │   ├── final/
 │   ├── logs/
+│   ├── config/
+│   │   ├── llm_settings.py
 ├── .gitignore
-├── venv/
+├── .venv/
 ```
 
 ### **File and Folder Descriptions:**
