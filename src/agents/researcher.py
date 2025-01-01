@@ -1,11 +1,11 @@
 import os
-from crewai import Agent, Task
+from crewai import Agent, Task, LLM
 from langchain.agents import Tool
 from langchain_community.utilities import GoogleSerperAPIWrapper
 from scripts.utils import get_api_key
 from src.config.llm_settings import AGENT_SETTINGS
 
-# get serper api key
+# get serper api
 serper_api = get_api_key("SERPER_API_KEY")
 
 search = GoogleSerperAPIWrapper()
@@ -14,6 +14,13 @@ search_tool = Tool(
     func=search.run,
     description="useful when agent need to search the internet to find the information that is neccessary."
 )
+
+gemini_api = get_api_key("GEMINI_API_KEY")
+llm = LLM(
+        model='gemini/gemini-pro',
+        temperature=0.7,
+        api_key=gemini_api
+    )
 
 researcher = Agent(
     role="Senior Researcher",
@@ -29,7 +36,7 @@ researcher = Agent(
     verbose=True,
     allow_delegation=True,
     allow_code_execution=True,
-    llm=AGENT_SETTINGS["researcher"],
+    llm=llm,
     tools=[search_tool]
 )
 
