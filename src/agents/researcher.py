@@ -5,7 +5,7 @@ from langchain_community.utilities import GoogleSerperAPIWrapper
 from scripts.utils import get_api_key
 from src.config.llm_settings import AGENT_SETTINGS
 
-
+# get serper api key
 serper_api = get_api_key("SERPER_API_KEY")
 
 search = GoogleSerperAPIWrapper()
