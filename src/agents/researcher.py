@@ -2,6 +2,7 @@ import os
 from crewai import Agent, Task
 from langchain.agents import Tool
 from langchain_community.utilities import GoogleSerperAPIWrapper
+from src.config.llm_settings import AGENT_SETTINGS
 
 serper_api = os.environ.get("SERPER_API_KEY")
 if serper_api is None:
@@ -28,6 +29,7 @@ researcher = Agent(
     verbose=True,
     allow_delegation=True,
     allow_code_execution=True,
+    llm=AGENT_SETTINGS["researcher"],
     tools=[search_tool]
 )
 
