@@ -2,11 +2,11 @@ import os
 from crewai import Agent, Task
 from langchain.agents import Tool
 from langchain_community.utilities import GoogleSerperAPIWrapper
+from scripts.utils import get_api_key
 from src.config.llm_settings import AGENT_SETTINGS
 
-serper_api = os.environ.get("SERPER_API_KEY")
-if serper_api is None:
-    raise ValueError("serper_api key ENVIRONMENT VARIALBE is not set")
+
+serper_api = get_api_key("SERPER_API_KEY")
 
 search = GoogleSerperAPIWrapper()
 search_tool = Tool(
