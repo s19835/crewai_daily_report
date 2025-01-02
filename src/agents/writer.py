@@ -1,4 +1,5 @@
 from crewai import Agent, Task
+from src.config import llm
 
 writer = Agent(
     role="Senior Writer",
@@ -11,7 +12,8 @@ writer = Agent(
 
     Engage your full repertoire of skills to ensure every piece you create achieves its purpose and resonates with its audience.""",
     allow_delegation=True,
-    verbose=True
+    verbose=True,
+    llm=llm
 )
 
 writing = Task(
