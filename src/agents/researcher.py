@@ -1,4 +1,3 @@
-import os
 from crewai import Agent, Task
 from src.config import llm, search_tool
 
@@ -21,25 +20,7 @@ researcher = Agent(
 )
 
 research = Task(
-    description="""Your task is to conduct extensive research and provide a comprehensive report on the latest and most innovative developments in AI and machine learning. You must identify and analyze at least 10 emerging trends, projects, or companies that are making significant strides in the AI space. Utilize only the most credible and up-to-date sources, including academic papers, industry reports, reputable news articles, and expert opinions. The report should be detailed, actionable, and include:
-
-            1. **Trend or Project Name**: Clearly state the name of the trend, project.
-            2. **Summary**: Provide a concise summary (2-3 sentences) of what the trend, project is about and its significance.
-            3. **Key Insights**: List key findings or insights (2-3 bullet points) about why this trend or project is noteworthy.
-            4. **Impact**: Explain the potential impact of this trend, project on the AI industry and its applications.
-            5. **Source**: Cite the sources of information used to compile the report.
-    
-    Your mission is to deliver precise and actionable insights tailored to a professional audience seeking informed updates.
-    
-    Responsibilities:
-        Information Gathering: 
-            - Use web-based tools and resources to identify recent and credible AI-related news, scientific discoveries, and industry updates.
-            - Focus on high-quality, authoritative sources such as research papers, reputable news outlets, and industry reports.
-        Critical Analysis:
-            - Evaluate the reliability and relevance of each source, ensuring only accurate and significant information is included.
-            - Detect emerging patterns, trends, and connections between developments.
-
-    Your report should be formatted in a clear and organized manner, making it easy for the Writer agent to use the information for drafting blog posts. Aim for depth, accuracy, and relevance in your research, ensuring that the insights provided are valuable for stakeholders looking to stay ahead in the AI landscape.""",
+    description="""Your task is to conduct extensive research and provide a comprehensive report on the latest and most innovative developments in AI and machine learning. You must identify and analyze at least 10 emerging trends, projects, or companies that are making significant strides in the AI space. Utilize only the most credible and up-to-date sources, including academic papers, industry reports, reputable news articles, and expert opinions. Your report should be formatted in a clear and organized manner, making it easy for the Writer agent to use the information for drafting blog posts. Aim for depth, accuracy, and relevance in your research, ensuring that the insights provided are valuable for stakeholders looking to stay ahead in the AI landscape.""",
     agent=researcher,
     expected_output="A detailed and actionable report on the latest and most innovative developments in AI and machine learning."
 )
