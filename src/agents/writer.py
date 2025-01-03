@@ -11,7 +11,7 @@ writer = Agent(
     Today, your role is crucial: you are entrusted with taking researched insights and ideas and transforming them into well-crafted written works. Your outputs are expected to inspire, inform, or persuade audiences, contributing meaningfully to their understanding and decision-making. You are not just a writer; you are a communicator, a storyteller, and a master of delivering impactful messages.
 
     Engage your full repertoire of skills to ensure every piece you create achieves its purpose and resonates with its audience.""",
-    allow_delegation=True,
+    allow_delegation=False,
     verbose=True,
     llm=llm
 )
